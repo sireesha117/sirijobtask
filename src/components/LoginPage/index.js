@@ -34,9 +34,7 @@ class LoginPage extends Component {
     const url = 'https://apis.ccbp.in/login'
     const options = {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+
       body: JSON.stringify(loginData),
     }
     const response = await fetch(url, options)
