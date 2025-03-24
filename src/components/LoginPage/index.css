@@ -1,0 +1,42 @@
+.login-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: black;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-radius: 10px;
+  background-color: #475569;
+  padding: 50px;
+}
+.logo {
+  height: 70px;
+  width: 100px;
+  align-self: center;
+  margin-bottom: 10px;
+}
+label {
+  color: white;
+  margin-bottom: 5px;
+}
+input {
+  background-color: transparent;
+  border-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+}
+.login {
+  color: white;
+  background-color: #4f46e5;
+  border-radius: 10px;
+  padding: 10px;
+  border-width: 0px;
+  width: 100%;
+}
