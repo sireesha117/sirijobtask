@@ -15,18 +15,19 @@ const Header = props => {
   return (
     <div className="nav">
       <img
+        className="headlogo"
         src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
         alt="website logo"
       />
       <ul>
-        <Link to="/">
+        <Link className="nolink" to="/">
           <li>Home</li>
         </Link>
-        <Link to="/jobs">
+        <Link className="nolink" to="/jobs">
           <li>Jobs</li>
         </Link>
       </ul>
-      <button type="button" onClick={onLogoutClick}>
+      <button className="logout" type="button" onClick={onLogoutClick}>
         Logout
       </button>
     </div>
