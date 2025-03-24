@@ -27,12 +27,16 @@ class LoginPage extends Component {
     this.setState({isErr: true, errMsg: errorMsg})
   }
 
-  onSubmitForm = async () => {
+  onSubmitForm = async event => {
+    event.preventDefault()
     const {username, password} = this.state
     const loginData = {username, password}
     const url = 'https://apis.ccbp.in/login'
     const options = {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify(loginData),
     }
     const response = await fetch(url, options)
@@ -96,7 +100,8 @@ class LoginPage extends Component {
               </div>
             </div>
 
-            <p>{isErr && <p>{errMsg}</p>}</p>
+            {isErr && <p>{errMsg}</p>}
+
             <div>
               {' '}
               <button className="login" type="submit">
