@@ -1,3 +1,5 @@
+import Header from '../Header'
+
 // const employmentTypesList = [
 //   {
 //     label: 'Full Time',
@@ -35,3 +37,11 @@
 //     label: '40 LPA and above',
 //   },
 // ]
+const Jobs = () => (
+  <div>
+    <Header />
+    <p>hello</p>
+  </div>
+)
+
+export default Jobs
