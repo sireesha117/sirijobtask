@@ -1,0 +1,11 @@
+.jobtab {
+  background-color: black;
+  /* min-height: 90vh; */
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.right {
+  color: white;
+}

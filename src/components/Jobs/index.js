@@ -1,4 +1,6 @@
+import './index.css'
 import Header from '../Header'
+import GetProfile from '../GetProfile'
 
 // const employmentTypesList = [
 //   {
@@ -40,7 +42,14 @@ import Header from '../Header'
 const Jobs = () => (
   <div>
     <Header />
-    <p>hello</p>
+    <div className="jobtab">
+      <div className="left">
+        <GetProfile />
+      </div>
+      <div className="right">
+        <p>right</p>
+      </div>
+    </div>
   </div>
 )
 
