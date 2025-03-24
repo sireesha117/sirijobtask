@@ -51,10 +51,23 @@ const apiSts = {
 
 class Jobs extends Component {
   state = {
-    checkBox: '',
+    checkBox: [],
     radioInput: '',
     searchInput: '',
     apiStsData: apiSts.initial,
+  }
+
+  onCheck = id => {
+    this.setState(prevState => {
+      if (prevState.checkBox.includes(id)) {
+        return {checkBox: prevState.checkBox.filter(item => item !== id)}
+      }
+      return {checkBox: [...prevState.checkBox, id]}
+    })
+  }
+
+  onRadio = id => {
+    this.setState({radioInput: id})
   }
 
   render() {
@@ -67,6 +80,8 @@ class Jobs extends Component {
             <SelectOptions
               employmentTypesList={employmentTypesList}
               salaryRangesList={salaryRangesList}
+              onCheck={this.onCheck}
+              onRadio={this.onRadio}
             />
           </div>
           <div className="right">
