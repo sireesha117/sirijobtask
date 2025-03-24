@@ -11,10 +11,10 @@ import ProtectedRoute from './components/ProtectedRoute'
 const App = () => (
   <>
     <Switch>
-      <Route exact to="/" component={Home} />
-      <ProtectedRoute exact to="/login" component={LoginPage} />
-      <ProtectedRoute exact to="/jobs" component={Jobs} />
-      <ProtectedRoute exact to="/jobs/:id" component={SpecificJobDetails} />
+      <ProtectedRoute exact path="/" component={Home} />
+      <Route exact path="/login" component={LoginPage} />
+      <ProtectedRoute exact path="/jobs" component={Jobs} />
+      <ProtectedRoute exact path="/jobs/:id" component={SpecificJobDetails} />
       <Route component={NotFound} />
     </Switch>
   </>
