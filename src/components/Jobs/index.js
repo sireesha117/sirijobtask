@@ -1,6 +1,9 @@
 import './index.css'
 import {Component} from 'react'
+import Cookies from 'js-cookie'
+import {BsSearch} from 'react-icons/bs'
 import Header from '../Header'
+
 import GetProfile from '../GetProfile'
 import SelectOptions from '../SelectOptions'
 
@@ -55,6 +58,44 @@ class Jobs extends Component {
     radioInput: '',
     searchInput: '',
     apiStsData: apiSts.initial,
+    jobbyData: [],
+  }
+
+  componentDidMount() {
+    this.getJobbyData()
+  }
+
+  getJobbyData = async () => {
+    const {checkBox, radioInput, searchInput} = this.state
+    this.setState({apiStsData: apiSts.inprogress})
+    const url = `https://apis.ccbp.in/jobs?employment_type=${checkBox.join(
+      ',',
+    )}&minimum_package=${radioInput}&search=${searchInput}`
+    const jwtToken = Cookies.get('jwt-token')
+    const options = {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${jwtToken}`,
+      },
+    }
+
+    const response = await fetch(url, options)
+    const data = await response.json()
+    if (response.ok) {
+      const formattedArray = data.jobs.map(eachItem => ({
+        company_logo_url: eachItem.company_logo_url,
+        employment_type: eachItem.employment_type,
+        id: eachItem.id,
+        job_description: eachItem.job_description,
+        location: eachItem.location,
+        package_per_annum: eachItem.package_per_annum,
+        rating: eachItem.rating,
+        title: eachItem.title,
+      }))
+      this.setState({apiStsData: apiSts.success, jobbyData: formattedArray})
+    } else {
+      this.setState({apiStsDatas: apiSts.failure})
+    }
   }
 
   onCheck = id => {
@@ -68,6 +109,10 @@ class Jobs extends Component {
 
   onRadio = id => {
     this.setState({radioInput: id})
+  }
+
+  onEnter = event => {
+    this.setState({searchInput: event.target.value})
   }
 
   render() {
@@ -87,11 +132,18 @@ class Jobs extends Component {
             />
           </div>
           <div className="right">
-            <p>right</p>
-            <p>{checkBox}</p>
-            <p>{radioInput}</p>
-            <p>{searchInput}</p>
-            <p>{apiStsData}</p>
+            <div>
+              <input
+                className="seachinput"
+                type="text"
+                onChange={this.onEnter}
+                value={searchInput}
+              />
+              <button type="button" data-testid="searchButton">
+                <BsSearch className="search-icon" />
+              </button>
+            </div>
+            <div />
           </div>
         </div>
       </div>

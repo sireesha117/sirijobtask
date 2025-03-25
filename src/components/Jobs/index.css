@@ -8,4 +8,14 @@
 }
 .right {
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  margin: 10px;
+}
+.seachinput {
+  width: 100%;
+  color: white;
 }
