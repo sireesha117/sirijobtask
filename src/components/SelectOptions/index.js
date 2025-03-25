@@ -22,8 +22,9 @@ const SelectOptions = props => {
               className="input1"
               type="checkbox"
               id={eachItem.employmentTypeId}
+              onChange={onCheckBoxSelect}
             />
-            onChange={onCheckBoxSelect}
+
             <label htmlFor={eachItem.employmentTypeId}>
               {eachItem.employmentTypeId}
             </label>

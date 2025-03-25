@@ -1,8 +1,10 @@
 import './index.css'
 import {Component} from 'react'
 import Cookies from 'js-cookie'
+import Loader from 'react-loader-spinner'
 import {BsSearch} from 'react-icons/bs'
 import Header from '../Header'
+import JobItem from '../JobItem'
 
 import GetProfile from '../GetProfile'
 import SelectOptions from '../SelectOptions'
@@ -65,6 +67,10 @@ class Jobs extends Component {
     this.getJobbyData()
   }
 
+  onRetry = () => {
+    this.getJobbyData()
+  }
+
   getJobbyData = async () => {
     const {checkBox, radioInput, searchInput} = this.state
     this.setState({apiStsData: apiSts.inprogress})
@@ -83,40 +89,90 @@ class Jobs extends Component {
     const data = await response.json()
     if (response.ok) {
       const formattedArray = data.jobs.map(eachItem => ({
-        company_logo_url: eachItem.company_logo_url,
-        employment_type: eachItem.employment_type,
+        companyLogoUrl: eachItem.company_logo_url,
+        employmentType: eachItem.employment_type,
         id: eachItem.id,
-        job_description: eachItem.job_description,
+        jobDescription: eachItem.job_description,
         location: eachItem.location,
-        package_per_annum: eachItem.package_per_annum,
+        packagePerAnnum: eachItem.package_per_annum,
         rating: eachItem.rating,
         title: eachItem.title,
       }))
       this.setState({apiStsData: apiSts.success, jobbyData: formattedArray})
     } else {
-      this.setState({apiStsDatas: apiSts.failure})
+      this.setState({apiStsData: apiSts.failure})
     }
   }
 
   onCheck = id => {
-    this.setState(prevState => {
-      if (prevState.checkBox.includes(id)) {
-        return {checkBox: prevState.checkBox.filter(item => item !== id)}
-      }
-      return {checkBox: [...prevState.checkBox, id]}
-    })
+    this.setState(
+      prevState => {
+        if (prevState.checkBox.includes(id)) {
+          return {checkBox: prevState.checkBox.filter(item => item !== id)}
+        }
+        return {checkBox: [...prevState.checkBox, id]}
+      },
+      this.getJobbyData, // Call getJobbyData after updating state
+    )
   }
 
   onRadio = id => {
-    this.setState({radioInput: id})
+    this.setState({radioInput: id}, this.getJobbyData)
   }
 
   onEnter = event => {
-    this.setState({searchInput: event.target.value})
+    this.setState({searchInput: event.target.value}, this.getJobbyData)
+  }
+
+  onLoading = () => (
+    <div className="loader-container" data-testid="loader">
+      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+    </div>
+  )
+
+  onFailure = () => (
+    <div>
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
+        alt="failure view"
+      />
+      <h1>Oops! Something Went Wrong</h1>
+      <p>we can not seem to find the page you are looking for.</p>
+      <button type="button" onClick={this.onRetry}>
+        Retry
+      </button>
+    </div>
+  )
+
+  onSuccess = () => {
+    const {jobbyData} = this.state
+    return (
+      <div>
+        <ul className="ul1">
+          {jobbyData.map(eachItem => (
+            <JobItem data={eachItem} key={eachItem.id} />
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  getSwitch = () => {
+    const {apiStsData} = this.state
+    switch (apiStsData) {
+      case apiSts.inprogress:
+        return this.onLoading()
+      case apiSts.success:
+        return this.onSuccess()
+      case apiSts.failure:
+        return this.onFailure()
+      default:
+        return null
+    }
   }
 
   render() {
-    const {radioInput, checkBox, searchInput, apiStsData} = this.state
+    const {radioInput, checkBox, searchInput} = this.state
     console.log(radioInput, checkBox)
     return (
       <div>
@@ -143,7 +199,7 @@ class Jobs extends Component {
                 <BsSearch className="search-icon" />
               </button>
             </div>
-            <div />
+            <div>{this.getSwitch()}</div>
           </div>
         </div>
       </div>
