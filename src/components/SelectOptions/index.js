@@ -24,7 +24,6 @@ const SelectOptions = props => {
               id={eachItem.employmentTypeId}
               onChange={onCheckBoxSelect}
             />
-
             <label htmlFor={eachItem.employmentTypeId}>
               {eachItem.employmentTypeId}
             </label>

@@ -146,7 +146,16 @@ class Jobs extends Component {
 
   onSuccess = () => {
     const {jobbyData} = this.state
-    return (
+    return jobbyData.length === 0 ? (
+      <div>
+        <img
+          src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
+          alt="no jobs"
+        />
+        <h1>No Jobs Found</h1>
+        <p>We could not found any jobs.Try other filters.</p>
+      </div>
+    ) : (
       <div>
         <ul className="ul1">
           {jobbyData.map(eachItem => (
