@@ -71,6 +71,8 @@ class Jobs extends Component {
   }
 
   render() {
+    const {radioInput, checkBox, searchInput, apiStsData} = this.state
+    console.log(radioInput, checkBox)
     return (
       <div>
         <Header />
@@ -86,6 +88,10 @@ class Jobs extends Component {
           </div>
           <div className="right">
             <p>right</p>
+            <p>{checkBox}</p>
+            <p>{radioInput}</p>
+            <p>{searchInput}</p>
+            <p>{apiStsData}</p>
           </div>
         </div>
       </div>

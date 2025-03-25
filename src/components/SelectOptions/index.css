@@ -1,0 +1,20 @@
+.row {
+  display: flex;
+  align-items: center; /* Align input and label vertically */
+}
+
+input[type='radio'] {
+  margin: 0 !important; /* Remove default margins */
+  padding: 0 !important; /* Remove default paddings */
+  display: inline-block; /* Keep it inline */
+}
+
+label {
+  margin: 0 !important; /* Remove default margins */
+  padding: 0 !important; /* Remove default paddings */
+  display: inline-block; /* Ensure inline alignment */
+}
+
+.row > * {
+  gap: 0 !important; /* Completely eliminates spacing */
+}
