@@ -1,0 +1,29 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #475569;
+  margin: 20px;
+}
+.website {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.locationrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.descriptionrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.lifeatcompanyrow {
+  display: flex;
+  flex-direction: row;
+}

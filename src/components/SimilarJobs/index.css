@@ -1,0 +1,9 @@
+.similarJobsCard {
+  display: flex;
+  flex-direction: column;
+}
+.fulltimerow {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+}
