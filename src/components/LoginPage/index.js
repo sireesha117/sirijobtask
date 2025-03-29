@@ -16,11 +16,11 @@ class LoginPage extends Component {
 
   onSubmitSuccess = jwtToken => {
     const {history} = this.props
-    Cookies.set('jwt-token', jwtToken, {
+    Cookies.set('jwt_token', jwtToken, {
       expires: 30,
       path: '/',
     })
-    history.push('/')
+    history.replace('/')
   }
 
   onSubmitFailure = errorMsg => {
@@ -48,7 +48,7 @@ class LoginPage extends Component {
 
   render() {
     const {isErr, errMsg, username, password} = this.state
-    const jwtToken = Cookies.get('jwt-token')
+    const jwtToken = Cookies.get('jwt_token')
     if (jwtToken !== undefined) {
       return <Redirect to="/" />
     }

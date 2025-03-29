@@ -20,7 +20,7 @@ class SpecificJobDetails extends Component {
     apiStatusData: apiSts.initial,
     // location: '',
     // packagePerAnnum: '',
-    rating: 0,
+    // rating: 0,
   }
 
   componentDidMount() {
@@ -39,7 +39,7 @@ class SpecificJobDetails extends Component {
     this.setState({apiStatusData: apiSts.inprogress})
 
     const url = `https://apis.ccbp.in/jobs/${id}`
-    const jwtToken = Cookies.get('jwt-token')
+    const jwtToken = Cookies.get('jwt_token')
 
     const options = {
       method: 'GET',
@@ -103,14 +103,14 @@ class SpecificJobDetails extends Component {
   }
 
   onFailure = () => (
-    <div>
+    <div className="failure">
       <img
         src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
         alt="failure view"
       />
       <h1>Oops! Something Went Wrong</h1>
       <p>We cannot seem to find the page you are looking for</p>
-      <button type="button" onClick={this.onRetry}>
+      <button className="retry" type="button" onClick={this.onRetry}>
         Retry
       </button>
     </div>
@@ -125,11 +125,10 @@ class SpecificJobDetails extends Component {
   onSuccess = () => {
     const {
       specificObj,
-      rating,
+
       lifeAtCompany,
       similarArray,
       specificArray,
-      // packagePerAnnum,
     } = this.state
 
     return (
@@ -143,7 +142,7 @@ class SpecificJobDetails extends Component {
             />
             <div className="space">
               <h1 className="marginless">{similarArray[0].title}</h1>
-              <p className="marginless">{rating}</p>
+              <p className="marginless">{specificObj.rating}</p>
             </div>
           </div>
           <div className="locationrow">
@@ -177,7 +176,11 @@ class SpecificJobDetails extends Component {
           <h1>Life at Company</h1>
           <div className="lifeatcompanyrow">
             <p>{lifeAtCompany.description}</p>
-            <img className="lifeimg" src={lifeAtCompany.imageUrl} alt="life" />
+            <img
+              className="lifeimg"
+              src={lifeAtCompany.imageUrl}
+              alt="life at company"
+            />
           </div>
         </div>
         <h1 className="white">Similar Jobs</h1>

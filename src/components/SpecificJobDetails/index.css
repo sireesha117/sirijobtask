@@ -14,6 +14,12 @@
   justify-content: flex-start;
   align-items: center;
 }
+.failure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .locationrow {
   display: flex;
   flex-direction: row;

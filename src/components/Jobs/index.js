@@ -76,7 +76,7 @@ class Jobs extends Component {
     const url = `https://apis.ccbp.in/jobs?employment_type=${checkBox.join(
       ',',
     )}&minimum_package=${radioInput}&search=${searchInput}`
-    const jwtToken = Cookies.get('jwt-token')
+    const jwtToken = Cookies.get('jwt_token')
     const options = {
       method: 'GET',
       headers: {
@@ -159,6 +159,9 @@ class Jobs extends Component {
             type="search"
             onChange={this.onEnter}
             value={searchInput}
+            role="searchbox" // Explicitly define the role
+            aria-label="Search for jobs" // Accessibility label for clarity
+            placeholder="Search for jobs"
           />
           <button
             className="seachicon"
