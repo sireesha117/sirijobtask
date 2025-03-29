@@ -21,7 +21,9 @@ const JobItem = props => {
           <img className="smallimg" src={companyLogoUrl} alt={title} />
           <div className="space">
             <h1 className="white">{title}</h1>
-            <p>{rating}</p>
+            <div>
+              <p>{rating}</p>
+            </div>
           </div>
         </div>
         <div className="row2">
