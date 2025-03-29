@@ -18,7 +18,11 @@ const JobItem = props => {
     <Link className="deco" to={`/jobs/${id}`}>
       <li className="eachjob">
         <div className="row1">
-          <img className="smallimg" src={companyLogoUrl} alt={title} />
+          <img
+            className="smallimg"
+            src={companyLogoUrl}
+            alt="job details company logo"
+          />
           <div className="space">
             <h1 className="white">{title}</h1>
             <div>

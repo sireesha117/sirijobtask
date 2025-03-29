@@ -10,7 +10,7 @@ const apiSts = {
   inprogress: 'INPROGRESS',
 }
 class GetProfile extends Component {
-  state = {fullname: '', role: '', prfUrl: '', apiStsData: apiSts.initial}
+  state = {name: '', role: '', prfUrl: '', apiStsData: apiSts.initial}
 
   componentDidMount() {
     this.getProfileData()
@@ -31,7 +31,7 @@ class GetProfile extends Component {
     const data = await response.json()
     if (response.ok) {
       this.setState({
-        fullname: data.profile_details.name,
+        name: data.profile_details.name,
         prfUrl: data.profile_details.profile_image_url,
         role: data.profile_details.short_bio,
         apiStsData: apiSts.success,
@@ -58,11 +58,11 @@ class GetProfile extends Component {
   )
 
   onSuccess = () => {
-    const {fullname, role, prfUrl} = this.state
+    const {name, role, prfUrl} = this.state
     return (
       <div className="profilediv">
-        <img className="prfimg" src={prfUrl} alt={fullname} />
-        <h1 className="fullname">{fullname}</h1>
+        <img className="prfimg" src={prfUrl} alt="profile" />
+        <h1 className="fullname">{name}</h1>
         <p className="profilerole">{role}</p>
       </div>
     )

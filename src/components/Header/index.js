@@ -21,17 +21,22 @@ const Header = props => {
         />
       </Link>
 
-      <ul>
-        <Link className="nolink" to="/">
-          <li>Home</li>
-        </Link>
-        <Link className="nolink" to="/jobs">
-          <li>Jobs</li>
-        </Link>
+      <ul className="header">
+        <div>
+          <Link className="nolink" to="/">
+            <li className="lidata">Home</li>
+          </Link>
+          <Link className="nolink" to="/jobs">
+            <li className="lidata">Jobs</li>
+          </Link>
+        </div>
+
+        <li className="lidata">
+          <button className="logout" type="button" onClick={onLogoutClick}>
+            Logout
+          </button>
+        </li>
       </ul>
-      <button className="logout" type="button" onClick={onLogoutClick}>
-        Logout
-      </button>
     </div>
   )
 }

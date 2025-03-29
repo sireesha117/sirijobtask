@@ -27,6 +27,10 @@ class SpecificJobDetails extends Component {
     this.getSpecific()
   }
 
+  onRetry = () => {
+    this.getSpecific()
+  }
+
   getSpecific = async () => {
     const {match} = this.props
     const {params} = match
@@ -105,7 +109,7 @@ class SpecificJobDetails extends Component {
         alt="failure view"
       />
       <h1>Oops! Something Went Wrong</h1>
-      <p>we can not seem to find the page you are looking for.</p>
+      <p>We cannot seem to find the page you are looking for</p>
       <button type="button" onClick={this.onRetry}>
         Retry
       </button>
@@ -135,7 +139,7 @@ class SpecificJobDetails extends Component {
             <img
               className="specificlogo"
               src={specificObj.companyLogoUrl}
-              alt={specificObj.id}
+              alt="company logo"
             />
             <div className="space">
               <h1 className="marginless">{similarArray[0].title}</h1>

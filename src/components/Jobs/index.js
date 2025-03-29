@@ -156,7 +156,7 @@ class Jobs extends Component {
         <div className="borderforsearch">
           <input
             className="seachinput"
-            type="text"
+            type="search"
             onChange={this.onEnter}
             value={searchInput}
           />

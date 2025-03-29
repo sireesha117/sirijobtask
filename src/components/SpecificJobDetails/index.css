@@ -70,6 +70,7 @@ hr {
   color: white;
   display: flex;
   flex-direction: row;
+  padding-left: 0px;
 
   border-radius: 5px;
   flex-wrap: wrap;

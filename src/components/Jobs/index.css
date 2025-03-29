@@ -1,11 +1,10 @@
 .jobtab {
   background-color: black;
-  /* min-height: 90vh; */
+
   padding: 10px;
   display: flex;
   flex-direction: row;
   font-family: roboto;
-  /* justify-content: space-between; */
 }
 .borderforsearch {
   border-width: 1px;
@@ -18,10 +17,10 @@
   width: 30%;
 }
 .jobtab {
-  overflow: visible; /* Ensure overflow does not hide child elements */
+  overflow: visible;
 }
 .left {
-  overflow: visible; /* Allow profile card to display properly */
+  overflow: visible;
 }
 
 .seachicon {
@@ -49,6 +48,7 @@
 .ul1 {
   display: flex;
   flex-direction: column;
+  padding-left: 0px;
 }
 .nojobs {
   display: flex;

@@ -1,38 +1,50 @@
 .nav {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  background-color: #2c364c;
-  padding: 5px;
-  color: white;
   align-items: center;
+  background-color: #2c364c;
+  padding: 5px 10px;
+  color: white;
+  width: 100%;
+}
 
-  margin: 0px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-ul {
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
-  padding-left: 0px;
-}
 .headlogo {
   height: 50px;
   width: 50px;
 }
-li {
-  margin-left: 0px;
-  margin: 10px;
-  color: white;
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between; /* Ensures proper spacing between sections */
 }
+
+.header > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* Center "Home" and "Jobs" */
+  align-items: center;
+  flex-grow: 1; /* Ensures this section takes up remaining space */
+}
+
+.lidata {
+  margin: 0 5px;
+  color: white;
+  list-style: none; /* Removes bullets for list items */
+}
+
 .nolink {
   text-decoration: none;
+  color: white;
 }
+
 .logout {
   color: white;
   background-color: #4f46e5;
-  border-width: 0px;
+  border: none;
   border-radius: 5px;
   padding: 10px;
+  margin-left: auto; /* Pushes the logout button to the far-right corner */
 }

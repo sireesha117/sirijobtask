@@ -5,6 +5,10 @@
   background-color: #475569;
   border-radius: 5px;
   padding: 10px;
+  margin-left: 0px;
+  margin-bottom: 10px;
+  color: white;
+  list-style-type: none;
 }
 .smallimg {
   height: 50px;

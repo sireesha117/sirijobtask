@@ -14,7 +14,7 @@ const SelectOptions = props => {
   return (
     <div>
       <hr />
-      <h1 className="white">Type of Employement</h1>
+      <h1 className="white">Type of Employment</h1>
       <div className="mar-left">
         {employmentTypesList.map(eachItem => (
           <div className="row">
