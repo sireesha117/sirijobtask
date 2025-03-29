@@ -6,24 +6,71 @@
   padding: 10px;
   border-radius: 10px;
   background-color: #475569;
-  margin: 20px;
+  color: white;
 }
 .website {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-items: center;
 }
 .locationrow {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.bg {
+  background-color: black;
+  margin-top: 0px;
+  padding: 40px;
+}
+.specificlogo {
+  height: 50px;
+  width: 50px;
 }
 .descriptionrow {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 100%;
+}
+.skillimg {
+  height: 50px;
+  width: 50px;
+}
+.skillrow {
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.lifeimg {
+  border-radius: 5px;
+}
+.skills {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+hr {
+  width: 100%;
 }
 .lifeatcompanyrow {
   display: flex;
   flex-direction: row;
+}
+.website {
+  display: flex;
+  flex-direction: row;
+}
+.sjobs {
+  color: white;
+  display: flex;
+  flex-direction: row;
+
+  border-radius: 5px;
+  flex-wrap: wrap;
 }

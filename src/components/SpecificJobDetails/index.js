@@ -18,8 +18,8 @@ class SpecificJobDetails extends Component {
     similarArray: [],
     lifeAtCompany: {},
     apiStatusData: apiSts.initial,
-    location: '',
-    packagePerAnnum: '',
+    // location: '',
+    // packagePerAnnum: '',
     rating: 0,
   }
 
@@ -125,48 +125,59 @@ class SpecificJobDetails extends Component {
       lifeAtCompany,
       similarArray,
       specificArray,
-      packagePerAnnum,
-      location,
+      // packagePerAnnum,
     } = this.state
 
     return (
-      <div className="card">
-        <div className="website">
-          <img src={specificObj.companyLogoUrl} alt={specificObj.id} />
-          <div>
-            <h1>{specificObj.title}</h1>
-            <p>{rating}</p>
+      <div className="bg">
+        <div className="card">
+          <div className="website">
+            <img
+              className="specificlogo"
+              src={specificObj.companyLogoUrl}
+              alt={specificObj.id}
+            />
+            <div className="space">
+              <h1 className="marginless">{similarArray[0].title}</h1>
+              <p className="marginless">{rating}</p>
+            </div>
           </div>
-        </div>
-        <div className="locationrow">
-          <div>
-            <p>{location}</p>
-            <p>{specificObj.employmentType}</p>
+          <div className="locationrow">
+            <div className="row">
+              <p className="space">{specificObj.location}</p>
+              <p className="space">{specificObj.employmentType}</p>
+            </div>
+            <p>{specificObj.packagePerAnnum}</p>
           </div>
-          <p>{packagePerAnnum}</p>
-        </div>
-        <hr />
-        <div className="descriptionrow">
-          <h1>Description</h1>
-          <a href={specificObj.companyWebsiteUrl}>Visit</a>
-        </div>
-        <p>{specificObj.description}</p>
-        <h1>Skills</h1>
-        <ul>
-          {specificArray.map(eachItem => (
-            <li key={eachItem.name}>
-              <img src={eachItem.imageUrl} alt={eachItem.name} />
-              <h1>{eachItem.name}</h1>
-            </li>
-          ))}
-        </ul>
-        <h1>Life at Company</h1>
-        <div className="lifeatcompanyrow">
-          <p>{lifeAtCompany.description}</p>
-          <img src={lifeAtCompany.imageUrl} alt="life" />
+          <hr />
+          <div className="descriptionrow">
+            <h1>Description</h1>
+            <a className="deco" href={specificObj.companyWebsiteUrl}>
+              Visit
+            </a>
+          </div>
+          <p>{specificObj.jobDescription}</p>
+          <h1>Skills</h1>
+          <ul className="skills">
+            {specificArray.map(eachItem => (
+              <li className="skillrow" key={eachItem.name}>
+                <img
+                  className="skillimg"
+                  src={eachItem.imageUrl}
+                  alt={eachItem.name}
+                />
+                <p>{eachItem.name}</p>
+              </li>
+            ))}
+          </ul>
+          <h1>Life at Company</h1>
+          <div className="lifeatcompanyrow">
+            <p>{lifeAtCompany.description}</p>
+            <img className="lifeimg" src={lifeAtCompany.imageUrl} alt="life" />
+          </div>
         </div>
         <h1>Similar Jobs</h1>
-        <ul>
+        <ul className="sjobs">
           {similarArray.map(eachItem => (
             <SimilarJobs data={eachItem} key={eachItem.id} />
           ))}

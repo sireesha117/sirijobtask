@@ -141,9 +141,9 @@ class Jobs extends Component {
   )
 
   onSuccess = () => {
-    const {jobbyData} = this.state
+    const {jobbyData, searchInput} = this.state
     return jobbyData.length === 0 ? (
-      <div>
+      <div className="nojobs">
         <img
           src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
           alt="no jobs"
@@ -153,6 +153,21 @@ class Jobs extends Component {
       </div>
     ) : (
       <div>
+        <div className="borderforsearch">
+          <input
+            className="seachinput"
+            type="text"
+            onChange={this.onEnter}
+            value={searchInput}
+          />
+          <button
+            className="seachicon"
+            type="button"
+            data-testid="searchButton"
+          >
+            <BsSearch className="search-icon" />
+          </button>
+        </div>
         <ul className="ul1">
           {jobbyData.map(eachItem => (
             <JobItem data={eachItem} key={eachItem.id} />
@@ -177,7 +192,7 @@ class Jobs extends Component {
   }
 
   render() {
-    const {radioInput, checkBox, searchInput} = this.state
+    const {radioInput, checkBox} = this.state
     console.log(radioInput, checkBox)
     return (
       <div>
@@ -193,21 +208,6 @@ class Jobs extends Component {
             />
           </div>
           <div className="right">
-            <div className="borderforsearch">
-              <input
-                className="seachinput"
-                type="text"
-                onChange={this.onEnter}
-                value={searchInput}
-              />
-              <button
-                className="seachicon"
-                type="button"
-                data-testid="searchButton"
-              >
-                <BsSearch className="search-icon" />
-              </button>
-            </div>
             <div>{this.getSwitch()}</div>
           </div>
         </div>

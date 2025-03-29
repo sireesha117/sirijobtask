@@ -13,21 +13,24 @@ const SimilarJobs = props => {
   } = data
 
   return (
-    <div className="similarJobsCard">
+    <li className="similarJobsCard">
       <div>
-        <img src={companyLogoUrl} alt={title} />
-        <div>
-          <h1>{title}</h1>
-          <p>{rating}</p>
+        <div className="row">
+          <img className="simiimg" src={companyLogoUrl} alt={title} />
+          <div className="mar">
+            <h1 className="marginless">{title}</h1>
+            <p className="marginless">{rating}</p>
+          </div>
         </div>
+
         <h1>Description</h1>
         <p>{jobDescription}</p>
         <div className="fulltimerow">
-          <p>{location}</p>
+          <p className="space">{location}</p>
           <p>{employmentType}</p>
         </div>
       </div>
-    </div>
+    </li>
   )
 }
 export default SimilarJobs

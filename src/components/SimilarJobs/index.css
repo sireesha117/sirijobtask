@@ -1,9 +1,30 @@
 .similarJobsCard {
   display: flex;
   flex-direction: column;
+  margin: 10px;
+  background-color: #475569;
+  padding: 10px;
+  border-radius: 5px;
 }
 .fulltimerow {
   display: flex;
   flex-direction: row;
-  align-self: center;
+  align-items: center;
+  justify-content: center;
+}
+.space {
+  margin: 10px;
+}
+.marginless {
+  margin: 0px;
+}
+.mar {
+  margin: 3px;
+}
+h1 {
+  font-size: 20px;
+}
+.simiimg {
+  height: 50px;
+  width: 50px;
 }
