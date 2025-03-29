@@ -10,7 +10,7 @@ const apiSts = {
   inprogress: 'INPROGRESS',
 }
 class GetProfile extends Component {
-  state = {name: '', role: '', prfUrl: '', apiStsData: apiSts.initial}
+  state = {name: '', role: '', profileImageUrl: '', apiStsData: apiSts.initial}
 
   componentDidMount() {
     this.getProfileData()
@@ -32,7 +32,7 @@ class GetProfile extends Component {
     if (response.ok) {
       this.setState({
         name: data.profile_details.name,
-        prfUrl: data.profile_details.profile_image_url,
+        profileImageUrl: data.profile_details.profile_image_url,
         role: data.profile_details.short_bio,
         apiStsData: apiSts.success,
       })
@@ -58,10 +58,10 @@ class GetProfile extends Component {
   )
 
   onSuccess = () => {
-    const {name, role, prfUrl} = this.state
+    const {name, role, profileImageUrl} = this.state
     return (
       <div className="profilediv">
-        <img className="prfimg" src={prfUrl} alt="profile" />
+        <img className="prfimg" src={profileImageUrl} alt="profile" />
         <h1 className="fullname">{name}</h1>
         <p className="profilerole">{role}</p>
       </div>
