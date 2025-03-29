@@ -13,17 +13,26 @@ const JobItem = props => {
     rating,
     title,
   } = data
+
   return (
-    <Link to={`/jobs/${id}`}>
-      <li>
-        <img src={companyLogoUrl} alt={title} />
-        <h1>{title}</h1>
-        <p>{location}</p>
-        <p>{employmentType}</p>
-        <p>{location}</p>
+    <Link className="deco" to={`/jobs/${id}`}>
+      <li className="eachjob">
+        <div className="row1">
+          <img className="smallimg" src={companyLogoUrl} alt={title} />
+          <div className="space">
+            <h1 className="white">{title}</h1>
+            <p>{rating}</p>
+          </div>
+        </div>
+        <div className="row2">
+          <div className="row1">
+            <p>{location}</p>
+            <p className="space">{employmentType}</p>
+          </div>
+          <p>{packagePerAnnum}</p>
+        </div>
+        <hr />
         <p>{jobDescription}</p>
-        <p>{packagePerAnnum}</p>
-        <p>{rating}</p>
       </li>
     </Link>
   )

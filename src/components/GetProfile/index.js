@@ -62,8 +62,8 @@ class GetProfile extends Component {
     return (
       <div className="profilediv">
         <img className="prfimg" src={prfUrl} alt={fullname} />
-        <h1>{fullname}</h1>
-        <p>{role}</p>
+        <h1 className="fullname">{fullname}</h1>
+        <p className="profilerole">{role}</p>
       </div>
     )
   }

@@ -46,17 +46,6 @@ class LoginPage extends Component {
     }
   }
 
-  // usernameEle = () => {
-  //   const {username} = this.state
-  //   return (
-
-  //   )
-  // }
-
-  // passwordEle = () => {
-  //   const {password} = this.state
-  // }
-
   render() {
     const {isErr, errMsg, username, password} = this.state
     const jwtToken = Cookies.get('jwt-token')
@@ -101,7 +90,6 @@ class LoginPage extends Component {
             {isErr && <p>{errMsg}</p>}
 
             <div>
-              {' '}
               <button className="login" type="submit">
                 Login
               </button>

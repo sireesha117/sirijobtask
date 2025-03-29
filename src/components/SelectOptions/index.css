@@ -1,20 +1,34 @@
 .row {
-  display: flex;
-  align-items: center; /* Align input and label vertically */
+  display: flex; /* Align horizontally */
+  align-items: center; /* Vertically center the input and label */
+  justify-content: flex-start; /* Align content to the left */
 }
 
-input[type='radio'] {
-  margin: 0 !important; /* Remove default margins */
-  padding: 0 !important; /* Remove default paddings */
-  display: inline-block; /* Keep it inline */
+input[type='radio'],
+input[type='checkbox'] {
+  margin: 0; /* Remove default margins */
+  padding: 0; /* Remove padding */
 }
 
 label {
-  margin: 0 !important; /* Remove default margins */
-  padding: 0 !important; /* Remove default paddings */
-  display: inline-block; /* Ensure inline alignment */
+  margin-left: 5px; /* Slight spacing for readability */
+  padding: 0;
+  display: inline-block;
 }
-
-.row > * {
-  gap: 0 !important; /* Completely eliminates spacing */
+.white {
+  color: white;
+  font-size: 15px;
+}
+input[type='radio'],
+input[type='checkbox'] {
+  margin: 0;
+  padding: 0;
+  width: auto; /* Prevent unnecessary width */
+  height: auto; /* Ensure height is not contributing to space */
+  line-height: 1; /* Compact vertical alignment */
+  box-sizing: border-box; /* Ensure padding and border stay within dimensions */
+  display: inline-block; /* Align inline to prevent block-level spacing */
+}
+.mar-left {
+  margin-left: 5px;
 }

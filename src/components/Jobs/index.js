@@ -5,7 +5,6 @@ import Loader from 'react-loader-spinner'
 import {BsSearch} from 'react-icons/bs'
 import Header from '../Header'
 import JobItem from '../JobItem'
-
 import GetProfile from '../GetProfile'
 import SelectOptions from '../SelectOptions'
 
@@ -105,15 +104,12 @@ class Jobs extends Component {
   }
 
   onCheck = id => {
-    this.setState(
-      prevState => {
-        if (prevState.checkBox.includes(id)) {
-          return {checkBox: prevState.checkBox.filter(item => item !== id)}
-        }
-        return {checkBox: [...prevState.checkBox, id]}
-      },
-      this.getJobbyData, // Call getJobbyData after updating state
-    )
+    this.setState(prevState => {
+      if (prevState.checkBox.includes(id)) {
+        return {checkBox: prevState.checkBox.filter(item => item !== id)}
+      }
+      return {checkBox: [...prevState.checkBox, id]}
+    }, this.getJobbyData)
   }
 
   onRadio = id => {
@@ -197,14 +193,18 @@ class Jobs extends Component {
             />
           </div>
           <div className="right">
-            <div>
+            <div className="borderforsearch">
               <input
                 className="seachinput"
                 type="text"
                 onChange={this.onEnter}
                 value={searchInput}
               />
-              <button type="button" data-testid="searchButton">
+              <button
+                className="seachicon"
+                type="button"
+                data-testid="searchButton"
+              >
                 <BsSearch className="search-icon" />
               </button>
             </div>

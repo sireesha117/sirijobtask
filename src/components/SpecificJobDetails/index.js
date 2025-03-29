@@ -3,6 +3,7 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import SimilarJobs from '../SimilarJobs'
+import Header from '../Header'
 
 const apiSts = {
   initial: 'INITIAL',
@@ -124,6 +125,8 @@ class SpecificJobDetails extends Component {
       lifeAtCompany,
       similarArray,
       specificArray,
+      packagePerAnnum,
+      location,
     } = this.state
 
     return (
@@ -137,10 +140,10 @@ class SpecificJobDetails extends Component {
         </div>
         <div className="locationrow">
           <div>
-            <p>{specificObj.location}</p>
+            <p>{location}</p>
             <p>{specificObj.employmentType}</p>
           </div>
-          <p>{specificObj.packagePerAnnum}</p>
+          <p>{packagePerAnnum}</p>
         </div>
         <hr />
         <div className="descriptionrow">
@@ -174,16 +177,24 @@ class SpecificJobDetails extends Component {
 
   render() {
     const {apiStatusData} = this.state
-    switch (apiStatusData) {
-      case apiSts.inprogress:
-        return this.onLoading()
-      case apiSts.success:
-        return this.onSuccess()
-      case apiSts.failure:
-        return this.onFailure()
-      default:
-        return null
-    }
+
+    return (
+      <div>
+        <Header />
+        {(() => {
+          switch (apiStatusData) {
+            case apiSts.inprogress:
+              return this.onLoading()
+            case apiSts.success:
+              return this.onSuccess()
+            case apiSts.failure:
+              return this.onFailure()
+            default:
+              return null
+          }
+        })()}
+      </div>
+    )
   }
 }
 export default SpecificJobDetails

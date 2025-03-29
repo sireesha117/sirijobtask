@@ -14,8 +14,8 @@ const SelectOptions = props => {
   return (
     <div>
       <hr />
-      <h1>Type of Employement</h1>
-      <div>
+      <h1 className="white">Type of Employement</h1>
+      <div className="mar-left">
         {employmentTypesList.map(eachItem => (
           <div className="row">
             <input
@@ -24,15 +24,13 @@ const SelectOptions = props => {
               id={eachItem.employmentTypeId}
               onChange={onCheckBoxSelect}
             />
-            <label htmlFor={eachItem.employmentTypeId}>
-              {eachItem.employmentTypeId}
-            </label>
+            <label htmlFor={eachItem.employmentTypeId}>{eachItem.label}</label>
           </div>
         ))}
       </div>
       <div>
         <hr />
-        <h1>Salary Range</h1>
+        <h1 className="white">Salary Range</h1>
         <div>
           {salaryRangesList.map(eachItem => (
             <div className="row">
@@ -43,9 +41,7 @@ const SelectOptions = props => {
                 id={eachItem.salaryRangeId}
                 onChange={onRadioSelect}
               />
-              <label htmlFor={eachItem.salaryRangeId}>
-                {eachItem.salaryRangeId}
-              </label>
+              <label htmlFor={eachItem.salaryRangeId}>{eachItem.label}</label>
             </div>
           ))}
         </div>

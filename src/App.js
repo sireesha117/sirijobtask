@@ -7,7 +7,6 @@ import SpecificJobDetails from './components/SpecificJobDetails'
 import NotFound from './components/NotFound'
 import ProtectedRoute from './components/ProtectedRoute'
 
-// Replace your code here
 const App = () => (
   <>
     <Switch>
