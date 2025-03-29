@@ -4,7 +4,6 @@ import Cookies from 'js-cookie'
 
 const Header = props => {
   const {history} = props
-  // const jwtToken = Cookies.get('jwt-token')
 
   const onLogoutClick = () => {
     Cookies.remove('jwt-token')
@@ -14,11 +13,14 @@ const Header = props => {
 
   return (
     <div className="nav">
-      <img
-        className="headlogo"
-        src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
-        alt="website logo"
-      />
+      <Link to="/">
+        <img
+          className="headlogo"
+          src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
+          alt="website logo"
+        />
+      </Link>
+
       <ul>
         <Link className="nolink" to="/">
           <li>Home</li>

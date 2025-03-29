@@ -176,7 +176,7 @@ class SpecificJobDetails extends Component {
             <img className="lifeimg" src={lifeAtCompany.imageUrl} alt="life" />
           </div>
         </div>
-        <h1>Similar Jobs</h1>
+        <h1 className="white">Similar Jobs</h1>
         <ul className="sjobs">
           {similarArray.map(eachItem => (
             <SimilarJobs data={eachItem} key={eachItem.id} />
