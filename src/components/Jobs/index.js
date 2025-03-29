@@ -133,7 +133,7 @@ class Jobs extends Component {
         alt="failure view"
       />
       <h1>Oops! Something Went Wrong</h1>
-      <p>we can not seem to find the page you are looking for.</p>
+      <p>We cannot seem to find the page you are looking for</p>
       <button type="button" onClick={this.onRetry}>
         Retry
       </button>
@@ -149,7 +149,7 @@ class Jobs extends Component {
           alt="no jobs"
         />
         <h1>No Jobs Found</h1>
-        <p>We could not found any jobs.Try other filters.</p>
+        <p>We could not find any jobs. Try other filters</p>
       </div>
     ) : (
       <div>

@@ -139,7 +139,7 @@ class SpecificJobDetails extends Component {
             <img
               className="specificlogo"
               src={specificObj.companyLogoUrl}
-              alt="company logo"
+              alt="job details company logo"
             />
             <div className="space">
               <h1 className="marginless">{similarArray[0].title}</h1>
