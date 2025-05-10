@@ -1,0 +1,26 @@
+.profilediv {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-image: url('https://assets.ccbp.in/frontend/react-js/profile-bg.png');
+  background-size: cover;
+
+  margin: 10px;
+  border-radius: 5px;
+}
+.fullname {
+  font-size: 20px;
+}
+.profilerole {
+  font-size: 15px;
+}
+.prfimg {
+  height: 50px;
+  width: 50px;
+}
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
